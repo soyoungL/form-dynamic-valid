@@ -1,14 +1,16 @@
-<FormItem
-  v-if="isshowuname"
-  prop="userName"
-  label="用户名"
->
-  <Input
-    v-model="dataSourceParam.userName"
-    type="text"
-    placeholder="用户名"
-  ></Input>
-</FormItem>
+<Form>
+  <FormItem
+    v-if="isshowuname"
+    prop="userName"
+    label="用户名"
+  >
+    <Input
+      v-model="dataSourceParam.userName"
+      type="text"
+      placeholder="用户名"
+    ></Input>
+  </FormItem>
+</Form>
 <script>
   export default {
     data(){
@@ -16,6 +18,9 @@
         dataSourceParam:{
           userName:""
         },
+        rules：{
+          userName: [{ required: true, message: "不能为空" }],
+        }
         isshowuname:false
       }
     },
